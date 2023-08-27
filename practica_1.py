@@ -53,4 +53,23 @@ class medicamento:
 class sistema:
     def __init__(self):
         self.__dic_mascotas = {}
-        
+        self.__dic_mascotas_caninas = {}
+        self.__dic_mascotas_felinas = {}
+    
+    def diccionario(self, mascota):
+        if mascota.getid() in self.__dic_mascotas:
+            print("El ID de la mascota ya existe")
+            return
+        else:
+            if mascota.gettype() == "Felino":
+                self.__dic_mascotas_felinas[mascota.getid()] = mascota
+            elif mascota.gettype() == "Canina":
+                self.__dic_mascotas_caninas[mascota.getid()] = mascota
+    
+    def agregar_medicamento(self, medicamento):
+        if medicamento.getname() in self.__dic_medicamentos:
+            print("El nombre del medicamento ya existe")
+            return
+        else:
+            self.__dic_medicamentos[medicamento.getname()] = medicamento
+
